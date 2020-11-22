@@ -1,11 +1,11 @@
 {- Assignment 3
- - Name: TODO add full name
- - Date: TODO add of completion
+ - Name: Supriya Thukral
+ - Date: November 15, 2020
  -}
 module Assign_3 where
 
 macid :: String
-macid = "TODO: put your mac id here"
+macid = "thukras"
 
 {- -----------------------------------------------------------------
  - Datatypes
@@ -41,14 +41,26 @@ exGraph :: Graph Char
 exGraph = [(nodeA,[1,2])
           ,(nodeB,[])
           ,(nodeC,[1,2])]
-
 {- -----------------------------------------------------------------
  - maxNodeID
  - -----------------------------------------------------------------
  - Description: TODO add comments on maxNodeID here
  -}
+
+--insert x [] = [x]
+--insert _ (y:ys)
+  --  | getNodeID (fst (head exGraph)) < y = x : (y:ys)
+  --  | otherwise = y : insert x ys
+
+--insertSort [] = []
+--insertSort (x:xs) = insert x (insertSort xs)
+
 maxNodeID :: Graph a -> Maybe NodeID
-maxNodeID nodes = error "TODO: implement maxNodeID"
+maxNodeID nodes
+  | nodes == [] = Nothing
+  | nodes ==[(x,_),[]] = Just (getNodeID x)
+  
+
 
 {- -----------------------------------------------------------------
  - insertNode
